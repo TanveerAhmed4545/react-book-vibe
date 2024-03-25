@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
 import { getStored } from "../Utils/localStorage";
 
 const Listed = () => {
@@ -94,14 +94,14 @@ const Listed = () => {
 <div>
           <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap ">
 	<Link
-    //  to="" 
+     to="" 
     onClick={()=> setTabIndex(0)}
     className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 0 ? 'border border-b-0' : 'border-b'} rounded-t-lg`}>
 		
 		<span>Read Books</span>
 	</Link>
 	<Link  
-    // to={`wish-list`}
+    to={`wishlist`}
     onClick={()=> setTabIndex(1)}
     className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 1 ? 'border border-b-0' : 'border-b'} rounded-t-lg`}>
 		
@@ -110,10 +110,11 @@ const Listed = () => {
 	
 	
 </div>
-          </div>
-
+<Outlet></Outlet>
+          </div>  
 
     </div>
+
   );
 };
 
