@@ -59,7 +59,7 @@ const BookDetails = () => {
             <div className="card lg:card-side bg-base-100 ">
   <figure>
     <div className="p-16 bg-[#1313130D] rounded-2xl">
-    <img className="max-h-[500px]" src={details.image} alt="Album"/>
+    <img className="lg:h-[500px]" src={details.image} alt="Album"/>
     </div>
   </figure>
   <div className="ml-12 relative">
