@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { getStored,  removeFromWishlist,  saveToReadList, saveToWishlist } from "../Utils/localStorage";
 
 
 const BookDetails = () => {
@@ -9,7 +10,48 @@ const BookDetails = () => {
     const idInt = parseInt(id);
 
     const details = data.find(d => d.id === idInt);
-    console.log(details);
+    // console.log(details);
+ 
+    const handleReadBook = (bookId) =>{
+        const readList = getStored('readlist');
+        const isInReadList = readList.includes(bookId);
+        const wishlist = getStored('wishlist');
+        const isInWishlist = wishlist.includes(bookId);
+    
+        if (isInReadList) {
+            // removeFromWishlist(isInReadList);
+            alert('This book is already in your Read list.');
+        } else {
+            if (isInWishlist) {
+                removeFromWishlist(bookId); // Remove from wishlist if already in wishlist
+            }
+            saveToReadList(bookId);
+            alert('The book has been added to your Read list.');
+        }
+    }
+
+    const handleWishList = (bookId) =>{
+        // saveBookData(idInt);
+
+
+        const readList = getStored('readlist');
+        const wishlist = getStored('wishlist');
+        const isInReadList = readList.includes(bookId);
+        const isInWishlist = wishlist.includes(bookId);
+    
+        if (isInReadList) {
+            
+            alert('This book is already in your Read list.');
+        } else if (isInWishlist) {
+            alert('This book is already in your Wishlist.');
+        } else {
+            saveToWishlist(bookId);
+            alert('The book has been added to your Wishlist.');
+        }
+        
+
+
+    }
 
 
     return (
@@ -37,8 +79,8 @@ const BookDetails = () => {
     <p><span>Year of Publishing:</span> <span>{details.yearOfPublishing}</span></p>
     <p><span>Rating:</span> <span>{details.rating}</span></p>
     <div className="card-actions absolute bottom-0">
-      <button className="btn btn-outline border-[#1313134D]">Read</button>
-      <button className="btn  bg-[#50B1C9] text-white">Wishlist</button>
+      <button onClick={() => handleReadBook(details.id)} className="btn btn-outline border-[#1313134D]">Read</button>
+      <button  onClick={() => handleWishList(details.id)} className="btn  bg-[#50B1C9] text-white">Wishlist</button>
     </div>
   </div>
 </div>

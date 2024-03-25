@@ -9,6 +9,8 @@ import './index.css'
 import Home from './components/Home/Home';
 import Root from './components/Root/Root';
 import BookDetails from './components/BookDetails/BookDetails';
+import Listed from './components/Listed/Listed';
+import PageToRead from './components/PageToRead/PageToRead';
 
 const router = createBrowserRouter([
   {
@@ -26,12 +28,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/listed",
-        element: <h2>Listed Books</h2>,
+        element: <Listed></Listed>,
+        loader: () => fetch('../public/data.json'),
       },
       
       {
         path: "/read",
-        element: <h2>Pages to Read</h2>,
+        element: <PageToRead></PageToRead>,
       }
     ]
   },
