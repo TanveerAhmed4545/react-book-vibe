@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CiStar } from "react-icons/ci";
 
 
 // eslint-disable-next-line react/prop-types
@@ -21,10 +22,15 @@ const Book = ({list}) => {
         tags.map((tag,index) => <button className="btn bg-[#23BE0A0D] text-[#23BE0A] rounded-[30px]" key={index}>{tag}</button>)
     }
   </div>
-  <div className="px-5 pb-5">
-    <h2 className="card-title my-5 ">{bookName}</h2>
-    <p>By : {author}</p>
+  <div className="px-5  ">
+    <h2 className="card-title my-5 text-[#131313]">{bookName}</h2>
+    <p className="border-b-2 pb-5 border-dotted text-[#131313]">By : {author}</p>
     
+  </div>
+  
+  <div className="p-5 flex justify-between ">
+    <p className="text-[#131313]">{category}</p>
+    <p className="flex items-center gap-2"><span className="font-medium text-[#131313]">{rating}</span> <span className="text-xl"><CiStar></CiStar></span></p>
   </div>
 </div>
 </Link>
