@@ -14,17 +14,27 @@ const WishBookList = ({ wish }) => {
         <div className="ml-6">
           <h2 className="font-bold text-2xl">{bookName}</h2>
           <p className="font-medium mt-4">By: {author}</p>
-          <div className="flex gap-3 items-center my-5">
+
+          
+          <div className="flex gap-7  flex-col lg:flex-row items-center my-5">
+
+
+        <div className="flex items-center gap-3">
         <p className="text-[#131313]">Tags : </p>
     {
         // eslint-disable-next-line react/prop-types
         tags.map((tag,index) => <button className="btn bg-[#23BE0A0D] text-[#23BE0A] rounded-[30px]" key={index}>{tag}</button>)
     }
-    <p className="flex items-center gap-3"><span><CiLocationOn></CiLocationOn></span> <span>Year of Publishing : {yearOfPublishing}</span></p>
+        </div>
+
+    <p className="flex items-center gap-3"><span className="text-xl"><CiLocationOn></CiLocationOn></span> <span>Year of Publishing : {yearOfPublishing}</span></p>
     </div>
-    <div className="flex gap-6 border-b-2 pb-4">
-    <p className="flex items-center gap-3"><span><IoPeopleOutline></IoPeopleOutline></span> <span>Publisher : {publisher}</span></p>
-    <p className="flex items-center gap-3"><span><MdOutlineFindInPage></MdOutlineFindInPage></span> <span>Page {totalPages}</span></p>
+    <div className="flex gap-6 flex-col lg:flex-row   pb-4">
+    <p className="flex items-center gap-3 text-[#13131399]"><span className="text-xl"><IoPeopleOutline></IoPeopleOutline></span> <span>Publisher : {publisher}</span></p>
+    <p className="flex items-center gap-3 text-[#13131399]"><span className="text-xl"><MdOutlineFindInPage></MdOutlineFindInPage></span> <span>Page {totalPages}</span></p>
+    </div>
+    <div>
+    <hr />
     </div>
           <div className="card-actions mt-4">
             <button className="btn bg-[#328EFF26] text-[#328EFF] rounded-[30px]">Category : {category}</button>

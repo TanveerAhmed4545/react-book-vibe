@@ -63,22 +63,24 @@ const BookDetails = () => {
     <img className="lg:h-[500px]" src={details.image} alt="Album"/>
     </div>
   </figure>
-  <div className="ml-12 lg:relative">
+  <div className="lg:ml-12 ml-0 lg:relative">
     <h2 className="font-bold text-4xl">{details.bookName}</h2>
-    <p className="my-6">By : {details.author}</p>
-    <p>{details.category}</p>
-    <p><span>Review :</span> <span>{details.review}</span></p>
-    <div className="flex gap-3 items-center mt-9">
+    <p className="my-5 text-[#131313CC]">By : {details.author}</p>
+    <div className="border-y-2">
+    <p className="py-4">{details.category}</p>
+    </div>
+    <p className="pt-5"><span className="text-[#131313]">Review :</span> <span className="text-[#131313B3]">{details.review}</span></p>
+    <div className="flex gap-3 items-center mt-9 border-b-2 pb-5">
         <p>Tags : </p>
     {
         // eslint-disable-next-line react/prop-types
         details.tags.map((tag,index) => <button className="btn bg-[#23BE0A0D] text-[#23BE0A] rounded-[30px]" key={index}>{tag}</button>)
     }
     </div>
-    <p><span>Number of Pages :</span> <span>{details.totalPages}</span></p>
-    <p><span>Publisher : </span> <span>{details.publisher}</span></p>
-    <p><span>Year of Publishing:</span> <span>{details.yearOfPublishing}</span></p>
-    <p><span>Rating:</span> <span>{details.rating}</span></p>
+    <p className="pt-6 pb-3 flex items-center gap-7"><span className="text-[#131313B3]">Number of Pages :</span> <span>{details.totalPages}</span></p>
+    <p className="flex items-center gap-7"><span className="text-[#131313B3]">Publisher : </span> <span>{details.publisher}</span></p>
+    <p className="flex items-center gap-7 py-3"><span className="text-[#131313B3]">Year of Publishing:</span> <span>{details.yearOfPublishing}</span></p>
+    <p className="flex items-center gap-7"><span className="text-[#131313B3]">Rating:</span> <span>{details.rating}</span></p>
     <div className="card-actions lg:absolute bottom-0">
       <button onClick={() => handleReadBook(details.id)} className="btn btn-outline border-[#1313134D]">Read</button>
       <button  onClick={() => handleWishList(details.id)} className="btn  bg-[#50B1C9] text-white">Wishlist</button>
