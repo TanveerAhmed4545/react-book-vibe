@@ -7,7 +7,7 @@ const WishBookList = ({ wish }) => {
     const {bookName,author,image,yearOfPublishing,publisher,totalPages,category,tags,rating} =wish;
   return (
     <div>
-      <div className="card lg:card-side bg-base-100 shadow-xl p-5">
+      <div className="card lg:card-side bg-base-100 border p-5">
         <figure>
           <img className="rounded-2xl w-auto lg:h-80" src={image} />
         </figure>

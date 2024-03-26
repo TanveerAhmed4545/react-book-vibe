@@ -4,11 +4,13 @@ import { getStored } from "../Utils/localStorage";
 
 const Listed = () => {
   const data = useLoaderData();
+  console.log(data);
 
   const [readBook, setReadBook] = useState([]);
   const [wishList, setWishList] = useState([]);
   const [tabIndex,setTabIndex] = useState(0);
 
+  console.log(readBook,wishList);
   useEffect(() => {
     const storedBooks = getStored("readlist");
     console.log(storedBooks);
@@ -55,8 +57,8 @@ const Listed = () => {
       <div className="text-center">
         <button className="btn bg-[#23BE0A] text-white">Sort by</button>
       </div>
-      <h2>Listed read : {readBook.length}</h2>
-      <h2>Listed read : {wishList.length}</h2>
+      {/* <h2>Listed read : {readBook.length}</h2>
+      <h2>Listed read : {wishList.length}</h2> */}
 
       {/* <div>
         <div role="tablist" className="tabs tabs-lifted">
@@ -91,7 +93,7 @@ const Listed = () => {
 </div>
           </div> */}
 {/* tabs */}
-<div>
+<div className="pt-10">
           <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap ">
 	<Link
      to="" 

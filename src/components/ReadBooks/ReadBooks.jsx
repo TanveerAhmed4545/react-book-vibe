@@ -11,7 +11,7 @@ const ReadBooks = () => {
 
     useEffect(() => {
         const storedBooks = getStored("readlist");
-        console.log(storedBooks);
+        // console.log(storedBooks);
     
         if (readData.length > 0) {
           const dataAll = [];

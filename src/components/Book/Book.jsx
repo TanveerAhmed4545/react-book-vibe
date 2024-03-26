@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 
 
+// eslint-disable-next-line react/prop-types
 const Book = ({list}) => {
+    // eslint-disable-next-line react/prop-types
     const {id,bookName,author,image,tags,category,rating} = list;
     // console.log(tags);
     return (

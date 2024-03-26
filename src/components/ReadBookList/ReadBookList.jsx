@@ -2,11 +2,13 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineFindInPage } from "react-icons/md";
 
+// eslint-disable-next-line react/prop-types
 const ReadBookList = ({read}) => {
+    // eslint-disable-next-line react/prop-types
     const {bookName,author,image,yearOfPublishing,publisher,totalPages,category,tags,rating} =read;
     return (
         <div>
-      <div className="card lg:card-side bg-base-100 shadow-xl p-5">
+      <div className="card lg:card-side bg-base-100 border p-5">
         <figure>
           <img className="rounded-2xl w-auto lg:h-80" src={image} />
         </figure>
