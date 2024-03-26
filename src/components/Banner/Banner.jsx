@@ -5,7 +5,7 @@ const Banner = () => {
         <div className=" mt-5 lg:mt-12 mb-5 lg:mb-16">
             <div className="hero  bg-[#1313130D] rounded-3xl">
   <div className="hero-content flex-col lg:flex-row-reverse py-20">
-    <img src='../../../public/images/banner.png' className="w-auto   " />
+    <img src={'https://i.ibb.co/C7tFb0S/banner.png'} className="w-auto   " />
     <div>
       <h1 className="text-5xl font-bold mb-11">Books to freshen <br /> up your bookshelf</h1>
      
