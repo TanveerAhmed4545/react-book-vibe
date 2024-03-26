@@ -31,6 +31,26 @@ const Navbar = () => {
            : "mr-3"
        } 
         >Pages to Read</NavLink></li>
+
+<li><NavLink to='/about'
+         className={({ isActive, isPending }) =>
+         isActive
+           ? "bg-none border text-[#23BE0A] font-semibold border-[#23BE0A] mr-3"
+           : isPending
+           ? "pending"
+           : "mr-3"
+       } 
+        >About Us</NavLink></li>
+
+<li><NavLink to='/contact'
+         className={({ isActive, isPending }) =>
+         isActive
+           ? "bg-none border text-[#23BE0A] font-semibold border-[#23BE0A] mr-3"
+           : isPending
+           ? "pending"
+           : "mr-3"
+       } 
+        >Contact Us</NavLink></li>
         
         </>
 
