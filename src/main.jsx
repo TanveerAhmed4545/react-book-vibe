@@ -13,11 +13,13 @@ import Listed from './components/Listed/Listed';
 import PageToRead from './components/PageToRead/PageToRead';
 import ReadBooks from './components/ReadBooks/ReadBooks';
 import WishBooks from './components/WishBooks/WishBooks';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
       {
         path: "/",

@@ -7,7 +7,7 @@ const Navbar = () => {
         <li><NavLink to='/'
          className={({ isActive, isPending }) =>
          isActive
-           ? "bg-none border text-[#23BE0A] border-[#23BE0A] mr-3"
+           ? "bg-none border text-[#23BE0A] font-semibold border-[#23BE0A] mr-3"
            : isPending
            ? "pending"
            : "mr-3"
@@ -16,7 +16,7 @@ const Navbar = () => {
         <li><NavLink to='/listed'
          className={({ isActive, isPending }) =>
          isActive
-           ? "bg-none border text-[#23BE0A] border-[#23BE0A] mr-3"
+           ? "bg-none border text-[#23BE0A] font-semibold border-[#23BE0A] mr-3"
            : isPending
            ? "pending"
            : "mr-3"
@@ -25,7 +25,7 @@ const Navbar = () => {
         <li><NavLink to='/read'
          className={({ isActive, isPending }) =>
          isActive
-           ? "bg-none border text-[#23BE0A] border-[#23BE0A] mr-3"
+           ? "bg-none border text-[#23BE0A] font-semibold border-[#23BE0A] mr-3"
            : isPending
            ? "pending"
            : "mr-3"
@@ -38,7 +38,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 mt-6">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -50,7 +50,7 @@ const Navbar = () => {
         }
       </ul>
     </div>
-    <a className=" text-xl">Book Vibe</a>
+    <a className=" text-3xl font-bold">Book Vibe</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -59,9 +59,9 @@ const Navbar = () => {
       }
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn mr-3">Button</a>
-    <a className="btn">Button</a>
+  <div className="navbar-end ">
+    <a className="btn text-white bg-[#23BE0A] mr-3">Sign In</a>
+    <a className="btn text-white bg-[#59C6D2]">Sign Up</a>
   </div>
 </div>
         

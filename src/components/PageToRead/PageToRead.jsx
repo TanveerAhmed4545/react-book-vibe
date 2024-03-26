@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStored } from "../Utils/localStorage";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid,ResponsiveContainer } from 'recharts';
 // import React from 'react';
 
 
@@ -108,16 +108,14 @@ const PageToRead = () => {
 
 
     return (
-        <div className="bg-slate-300">
+        <div className="bg-[#13131308] p-12 rounded-3xl mt-7" style={{width:'100%' , height: '80vh'}}>
             {/* <h2>PageToRead  {readData.length}</h2> */}
 
 
-
-
-
-
-
-            <BarChart
+ <ResponsiveContainer>
+           
+           
+ <BarChart
       width={500}
       height={500}
       data={readData}
@@ -137,6 +135,12 @@ const PageToRead = () => {
         ))}
       </Bar>
     </BarChart>
+
+ </ResponsiveContainer>
+
+
+
+
 
 
 
