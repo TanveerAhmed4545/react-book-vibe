@@ -32,7 +32,7 @@ const BookDetails = () => {
     }
 
     const handleWishList = (bookId) =>{
-        // saveBookData(idInt);
+       
 
 
         const readList = getStored('readlist');

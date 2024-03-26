@@ -54,9 +54,9 @@ const Listed = () => {
       <div className="w-full bg-[#1313130D] rounded-2xl text-center">
         <h2 className="py-8 font-bold text-3xl">Books</h2>
       </div>
-      <div className="text-center">
+      {/* <div className="text-center">
         <button className="btn bg-[#23BE0A] text-white">Sort by</button>
-      </div>
+      </div> */}
       {/* <h2>Listed read : {readBook.length}</h2>
       <h2>Listed read : {wishList.length}</h2> */}
 
