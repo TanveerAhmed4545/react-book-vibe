@@ -13,7 +13,7 @@ const Listed = () => {
   console.log(readBook,wishList);
   useEffect(() => {
     const storedBooks = getStored("readlist");
-    console.log(storedBooks);
+    // console.log(storedBooks);
 
     if (data.length > 0) {
       const dataAll = [];
@@ -32,7 +32,7 @@ const Listed = () => {
 
   useEffect(() => {
     const storedWishBooks = getStored("wishlist");
-    console.log(storedWishBooks);
+    // console.log(storedWishBooks);
 
     if (data.length > 0) {
       const dataWishAll = [];

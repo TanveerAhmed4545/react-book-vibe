@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { getStored,  removeFromWishlist,  saveToReadList, saveToWishlist } from "../Utils/localStorage";
+import { toast } from "react-toastify";
 
 
 const BookDetails = () => {
@@ -20,13 +21,13 @@ const BookDetails = () => {
     
         if (isInReadList) {
             // removeFromWishlist(isInReadList);
-            alert('This book is already in your Read list.');
+            toast.warning('This book is already in your Read list.');
         } else {
             if (isInWishlist) {
                 removeFromWishlist(bookId); // Remove from wishlist if already in wishlist
             }
             saveToReadList(bookId);
-            alert('The book has been added to your Read list.');
+            toast.success('The book has been added to your Read list.');
         }
     }
 
@@ -41,12 +42,12 @@ const BookDetails = () => {
     
         if (isInReadList) {
             
-            alert('This book is already in your Read list.');
+            toast.warning('This book is already in your Read list.');
         } else if (isInWishlist) {
-            alert('This book is already in your Wishlist.');
+            toast.warning('This book is already in your Wishlist.');
         } else {
             saveToWishlist(bookId);
-            alert('The book has been added to your Wishlist.');
+            toast.success('The book has been added to your Wishlist.');
         }
         
 
