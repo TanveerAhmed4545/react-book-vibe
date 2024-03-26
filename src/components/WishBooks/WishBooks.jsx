@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStored } from "../Utils/localStorage";
+import WishBookList from "../WishBookList/WishBookList";
 
 
 const WishBooks = () => {
@@ -28,8 +29,12 @@ const WishBooks = () => {
       }, [wishData]);
 
     return (
-        <div>
-            <h2>WishBooks : {wishLists.length}</h2>
+        <div className="flex flex-col gap-5 my-5">
+            {/* <h2>WishBooks : {wishLists.length}</h2> */}
+
+            {
+              wishLists.map((wish,idx) => <WishBookList key={idx} wish={wish}></WishBookList>)
+            }
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStored } from "../Utils/localStorage";
+import ReadBookList from "../ReadBookList/ReadBookList";
 
 
 const ReadBooks = () => {
@@ -28,8 +29,13 @@ const ReadBooks = () => {
       }, [readData]);
 
     return (
-        <div>
-            <h2>ReadBooks : {readBooks.length}</h2>
+        <div className="flex flex-col gap-5 my-5">
+            {/* <h2>ReadBooks : {readBooks.length}</h2> */}
+
+            {
+              readBooks.map((read,idx) => <ReadBookList read={read} key={idx}></ReadBookList>)
+            }
+
         </div>
     );
 };

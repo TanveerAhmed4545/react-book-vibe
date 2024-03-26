@@ -62,7 +62,7 @@ const BookDetails = () => {
     <img className="lg:h-[500px]" src={details.image} alt="Album"/>
     </div>
   </figure>
-  <div className="ml-12 relative">
+  <div className="ml-12 lg:relative">
     <h2 className="font-bold text-4xl">{details.bookName}</h2>
     <p className="my-6">By : {details.author}</p>
     <p>{details.category}</p>
@@ -78,7 +78,7 @@ const BookDetails = () => {
     <p><span>Publisher : </span> <span>{details.publisher}</span></p>
     <p><span>Year of Publishing:</span> <span>{details.yearOfPublishing}</span></p>
     <p><span>Rating:</span> <span>{details.rating}</span></p>
-    <div className="card-actions absolute bottom-0">
+    <div className="card-actions lg:absolute bottom-0">
       <button onClick={() => handleReadBook(details.id)} className="btn btn-outline border-[#1313134D]">Read</button>
       <button  onClick={() => handleWishList(details.id)} className="btn  bg-[#50B1C9] text-white">Wishlist</button>
     </div>
