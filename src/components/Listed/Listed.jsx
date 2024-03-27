@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+// import { Link, Outlet, useLoaderData } from "react-router-dom";
+import {  useLoaderData } from "react-router-dom";
 import { getStored } from "../Utils/localStorage";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ReadBookList from "../ReadBookList/ReadBookList";
 import WishBookList from "../WishBookList/WishBookList";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Listed = () => {
   const data = useLoaderData();
@@ -94,7 +96,7 @@ const Listed = () => {
       
       <div className="pt-4 text-center">
           <details className="dropdown">
-  <summary className="m-1 btn bg-[#23BE0A] text-white">Sort by</summary>
+  <summary className="m-1 btn bg-[#23BE0A] text-white">Sort by <span><IoIosArrowDown></IoIosArrowDown></span></summary>
   <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
     <li onClick={() => handleBooksFilter('all')}><a>All</a></li>
     <li onClick={() => handleBooksFilter('num')}><a>Page Number</a></li>
@@ -110,7 +112,7 @@ const Listed = () => {
         <Tab>Read Books</Tab>
         <Tab>Wishlist Books</Tab>
       </TabList>
-      <TabPanel>Read
+      <TabPanel>
       <div className="flex flex-col gap-5 my-5">
             {/* <h2>ReadBooks : {readBooks.length}</h2> */}
 
@@ -120,7 +122,7 @@ const Listed = () => {
 
         </div>
          </TabPanel>
-      <TabPanel> Wish 
+      <TabPanel>  
       <div className="flex flex-col gap-5 my-5">
             {/* <h2>WishBooks : {wishLists.length}</h2> */}
 
