@@ -1,5 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import { getStored,  removeFromWishlist,  saveToReadList, saveToWishlist } from "../Utils/localStorage";
+import { getStored,  saveToReadList, saveToWishlist } from "../Utils/localStorage";
 import { toast } from "react-toastify";
 
 
@@ -16,16 +16,16 @@ const BookDetails = () => {
     const handleReadBook = (bookId) =>{
         const readList = getStored('readlist');
         const isInReadList = readList.includes(bookId);
-        const wishlist = getStored('wishlist');
-        const isInWishlist = wishlist.includes(bookId);
+        // const wishlist = getStored('wishlist');
+        // const isInWishlist = wishlist.includes(bookId);
     
         if (isInReadList) {
             // removeFromWishlist(isInReadList);
             toast.warning('This book is already in your Read list.');
         } else {
-            if (isInWishlist) {
-                removeFromWishlist(bookId); // Remove from wishlist if already in wishlist
-            }
+            // if (isInWishlist) {
+            //     removeFromWishlist(bookId); // Remove from wishlist if already in wishlist
+            // }
             saveToReadList(bookId);
             toast.success('The book has been added to your Read list.');
         }

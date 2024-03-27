@@ -10,7 +10,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const Listed = () => {
   const data = useLoaderData();
-  console.log(data);
+  // console.log(data);
 
   const [readBook, setReadBook] = useState([]);
   const [wishList, setWishList] = useState([]);
@@ -53,7 +53,7 @@ const Listed = () => {
 
 
 
-  console.log(readBook,wishList);
+  // console.log(readBook,wishList);
   useEffect(() => {
     const storedBooks = getStored("readlist");
     // console.log(storedBooks);
@@ -70,7 +70,7 @@ const Listed = () => {
       }
       setReadBook(dataAll);
       setFilterBook(dataAll);
-      console.log(dataAll);
+      // console.log(dataAll);
     }
   }, [data]);
 
@@ -90,7 +90,7 @@ const Listed = () => {
       }
       setWishList(dataWishAll);
       setFilterWishBook(dataWishAll);
-      console.log(dataWishAll);
+      // console.log(dataWishAll);
     }
   }, [data]);
 
