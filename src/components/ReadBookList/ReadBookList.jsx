@@ -1,11 +1,12 @@
 import { IoPeopleOutline } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineFindInPage } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const ReadBookList = ({read}) => {
     // eslint-disable-next-line react/prop-types
-    const {bookName,author,image,yearOfPublishing,publisher,totalPages,category,tags,rating} =read;
+    const {id,bookName,author,image,yearOfPublishing,publisher,totalPages,category,tags,rating} =read;
     return (
         <div>
       <div className="card lg:card-side bg-base-100 border p-5">
@@ -32,7 +33,7 @@ const ReadBookList = ({read}) => {
           <div className="card-actions mt-4">
             <button className="btn bg-[#328EFF26] text-[#328EFF] rounded-[30px]">Category : {category}</button>
             <button className="btn bg-[#FFAC3326] text-[#FFAC33] rounded-[30px]">Rating : {rating}</button>
-            <button className="btn bg-[#23BE0A] text-white rounded-[30px]">View Details</button>
+           <Link to={`/listed-details/${id}`}> <button className="btn bg-[#23BE0A] text-white rounded-[30px]">View Details</button></Link>
           </div>
         </div>
       </div>
