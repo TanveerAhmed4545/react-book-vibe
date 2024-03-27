@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useLoaderData } from "react-router-dom";
 import { getStored } from "../Utils/localStorage";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import ReadBookList from "../ReadBookList/ReadBookList";
+import WishBookList from "../WishBookList/WishBookList";
 
 const Listed = () => {
   const data = useLoaderData();
@@ -8,7 +12,38 @@ const Listed = () => {
 
   const [readBook, setReadBook] = useState([]);
   const [wishList, setWishList] = useState([]);
-  const [tabIndex,setTabIndex] = useState(0);
+  // const [tabIndexs,setTabIndexs] = useState(0);
+  const [tabIndex, setTabIndex] = useState(0);
+  const [filterBook,setFilterBook] = useState([]);
+  const [filterWishBook,setFilterWishBook] = useState([]);
+
+
+
+
+  const handleBooksFilter = filter =>{
+    if(filter === 'all'){
+     setFilterBook(readBook);
+     setFilterWishBook(wishList);
+    }else if(filter === 'num'){
+      const filteredBooks = readBook.filter(book => book.totalPages >= 0);
+      const sortedFilteredBooks = filteredBooks.sort((a, b) =>  b.totalPages - a.totalPages  );
+      setFilterBook(sortedFilteredBooks);
+      setFilterWishBook(sortedFilteredBooks);
+    }else if (filter === 'year') {
+      const filteredYearBooks = readBook.filter(book => book.yearOfPublishing >= 0);
+      const sortedFilteredBooks=  filteredYearBooks.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+      setFilterBook(sortedFilteredBooks);
+      setFilterWishBook(sortedFilteredBooks);
+    } else if (filter === 'rating') {
+      
+      const filteredBooks = readBook.filter(book => book.rating >= 0);
+      const sortedFilteredBooks = filteredBooks.sort((a, b) => b.rating - a.rating);
+      setFilterBook(sortedFilteredBooks);
+      setFilterWishBook(sortedFilteredBooks);
+    }
+  }
+
+
 
   console.log(readBook,wishList);
   useEffect(() => {
@@ -26,6 +61,7 @@ const Listed = () => {
         }
       }
       setReadBook(dataAll);
+      setFilterBook(dataAll);
       console.log(dataAll);
     }
   }, [data]);
@@ -45,6 +81,7 @@ const Listed = () => {
         }
       }
       setWishList(dataWishAll);
+      setFilterWishBook(dataWishAll);
       console.log(dataWishAll);
     }
   }, [data]);
@@ -54,58 +91,63 @@ const Listed = () => {
       <div className="w-full bg-[#1313130D] rounded-2xl text-center">
         <h2 className="py-8 font-bold text-3xl">Books</h2>
       </div>
-      {/* <div className="text-center">
-        <button className="btn bg-[#23BE0A] text-white">Sort by</button>
-      </div> */}
-      {/* <h2>Listed read : {readBook.length}</h2>
-      <h2>Listed read : {wishList.length}</h2> */}
+      
+      <div className="pt-4 text-center">
+          <details className="dropdown">
+  <summary className="m-1 btn bg-[#23BE0A] text-white">Sort by</summary>
+  <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+    <li onClick={() => handleBooksFilter('all')}><a>All</a></li>
+    <li onClick={() => handleBooksFilter('num')}><a>Page Number</a></li>
+    <li onClick={() => handleBooksFilter('year')}><a>Year</a></li>
+    <li onClick={() => handleBooksFilter('rating')}><a>Rating</a></li>
+  </ul>
+</details>
+          </div>
 
-      {/* <div>
-        <div role="tablist" className="tabs tabs-lifted">
-          <a role="tab" className="tab">
-          Read Books
-          </a>
-          <a role="tab" className="tab tab-active">
-          Wishlist Books
-          </a>
-          
+       <div>
+       <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+      <TabList>
+        <Tab>Read Books</Tab>
+        <Tab>Wishlist Books</Tab>
+      </TabList>
+      <TabPanel>Read
+      <div className="flex flex-col gap-5 my-5">
+            {/* <h2>ReadBooks : {readBooks.length}</h2> */}
+
+            {
+              filterBook.map((read,idx) => <ReadBookList read={read} key={idx}></ReadBookList>)
+            }
+
         </div>
-      </div> */}
+         </TabPanel>
+      <TabPanel> Wish 
+      <div className="flex flex-col gap-5 my-5">
+            {/* <h2>WishBooks : {wishLists.length}</h2> */}
+
+            {
+              filterWishBook.map((wish,idx) => <WishBookList key={idx} wish={wish}></WishBookList>)
+            }
+        </div>
+      </TabPanel>
+    </Tabs>
+       </div>
+       
 
 
-          {/* <div>
-          <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap dark:bg-gray-100 dark:bg-gray-100 dark:text-gray-800 dark:text-gray-800">
-	<a rel="noopener noreferrer" href="#" className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border-b dark:border-gray-600 dark:border-gray-600 dark:text-gray-600 dark:text-gray-600">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-			<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-		</svg>
-		<span>Architecto</span>
-	</a>
-	<a rel="noopener noreferrer" href="#" className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border border-b-0 rounded-t-lg dark:border-gray-600 dark:border-gray-600 dark:text-gray-900 dark:text-gray-900">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-			<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-			<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-		</svg>
-		<span>Corrupti</span>
-	</a>
-	
-	
-</div>
-          </div> */}
 {/* tabs */}
-<div className="pt-10">
+{/* <div className="pt-10">
           <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap ">
 	<Link
      to="" 
-    onClick={()=> setTabIndex(0)}
-    className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 0 ? 'border border-b-0' : 'border-b'} rounded-t-lg`}>
+    onClick={()=> setTabIndexs(0)}
+    className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndexs === 0 ? 'border border-b-0' : 'border-b'} rounded-t-lg`}>
 		
 		<span>Read Books</span>
 	</Link>
 	<Link  
     to={`wishlist`}
-    onClick={()=> setTabIndex(1)}
-    className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 1 ? 'border border-b-0' : 'border-b'} rounded-t-lg`}>
+    onClick={()=> setTabIndexs(1)}
+    className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndexs === 1 ? 'border border-b-0' : 'border-b'} rounded-t-lg`}>
 		
 		<span>Wishlist Books</span>
 	</Link>
@@ -113,7 +155,7 @@ const Listed = () => {
 	
 </div>
 <Outlet></Outlet>
-          </div>  
+          </div>   */}
 
     </div>
 
