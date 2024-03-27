@@ -104,7 +104,7 @@ const Listed = () => {
           <details className="dropdown">
   <summary className="m-1 btn bg-[#23BE0A] text-white">Sort by <span><IoIosArrowDown></IoIosArrowDown></span></summary>
   <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-    <li onClick={() => handleBooksFilter('all')}><a>All</a></li>
+    <li onClick={() => handleBooksFilter('all')}><a>By Default</a></li>
     <li onClick={() => handleBooksFilter('num')}><a>Page Number</a></li>
     <li onClick={() => handleBooksFilter('year')}><a>Year</a></li>
     <li onClick={() => handleBooksFilter('rating')}><a>Rating</a></li>
