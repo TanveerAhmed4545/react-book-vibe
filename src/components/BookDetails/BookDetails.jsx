@@ -64,7 +64,7 @@ const BookDetails = () => {
     </div>
   </figure>
   <div className="lg:ml-12 ml-0 lg:relative">
-    <h2 className="font-bold text-4xl">{details.bookName}</h2>
+    <h2 className="font-bold text-4xl mt-5 lg:mt-0">{details.bookName}</h2>
     <p className="my-5 text-[#131313CC]">By : {details.author}</p>
     <div className="border-y-2">
     <p className="py-4">{details.category}</p>
@@ -81,7 +81,7 @@ const BookDetails = () => {
     <p className="flex items-center gap-7"><span className="text-[#131313B3]">Publisher : </span> <span className="font-semibold text-[#131313]">{details.publisher}</span></p>
     <p className="flex items-center gap-7 py-3"><span className="text-[#131313B3]">Year of Publishing:</span> <span className="font-semibold text-[#131313]">{details.yearOfPublishing}</span></p>
     <p className="flex items-center gap-7"><span className="text-[#131313B3]">Rating:</span> <span className="font-semibold text-[#131313]">{details.rating}</span></p>
-    <div className="card-actions lg:absolute bottom-0">
+    <div className="card-actions lg:absolute bottom-0 mt-3">
       <button onClick={() => handleReadBook(details.id)} className="btn btn-outline border-[#1313134D]">Read</button>
       <button  onClick={() => handleWishList(details.id)} className="btn  bg-[#50B1C9] text-white">Wishlist</button>
     </div>

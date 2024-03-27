@@ -23,13 +23,13 @@ const Book = ({list}) => {
     }
   </div>
   <div className="px-5  ">
-    <h2 className="card-title my-5 text-[#131313]">{bookName}</h2>
-    <p className="border-b-2 pb-5 border-dotted text-[#131313]">By : {author}</p>
+    <h2 className="card-title my-5 text-[#131313] font-bold">{bookName}</h2>
+    <p className="border-b-2 pb-5 border-dotted text-[#131313] font-medium">By : {author}</p>
     
   </div>
   
   <div className="p-5 flex justify-between ">
-    <p className="text-[#131313]">{category}</p>
+    <p className="text-[#131313] font-medium">{category}</p>
     <p className="flex items-center gap-2"><span className="font-medium text-[#131313]">{rating}</span> <span className="text-xl"><CiStar></CiStar></span></p>
   </div>
 </div>
