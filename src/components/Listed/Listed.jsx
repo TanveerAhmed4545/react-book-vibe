@@ -28,20 +28,26 @@ const Listed = () => {
      setFilterWishBook(wishList);
     }else if(filter === 'num'){
       const filteredBooks = readBook.filter(book => book.totalPages >= 0);
+      const filteredWishBooks = wishList.filter(book => book.totalPages >= 0);
       const sortedFilteredBooks = filteredBooks.sort((a, b) =>  b.totalPages - a.totalPages  );
+      const sortedFilteredWishBooks = filteredWishBooks.sort((a, b) =>  b.totalPages - a.totalPages  );
       setFilterBook(sortedFilteredBooks);
-      setFilterWishBook(sortedFilteredBooks);
+      setFilterWishBook(sortedFilteredWishBooks);
     }else if (filter === 'year') {
       const filteredYearBooks = readBook.filter(book => book.yearOfPublishing >= 0);
+      const filteredYearWishBooks = wishList.filter(book => book.yearOfPublishing >= 0);
       const sortedFilteredBooks=  filteredYearBooks.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+      const sortedFilteredWishBooks=  filteredYearWishBooks.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
       setFilterBook(sortedFilteredBooks);
-      setFilterWishBook(sortedFilteredBooks);
+      setFilterWishBook(sortedFilteredWishBooks);
     } else if (filter === 'rating') {
       
       const filteredBooks = readBook.filter(book => book.rating >= 0);
+      const filteredWishBooks = wishList.filter(book => book.rating >= 0);
       const sortedFilteredBooks = filteredBooks.sort((a, b) => b.rating - a.rating);
+      const sortedFilteredWishBooks = filteredWishBooks.sort((a, b) => b.rating - a.rating);
       setFilterBook(sortedFilteredBooks);
-      setFilterWishBook(sortedFilteredBooks);
+      setFilterWishBook(sortedFilteredWishBooks);
     }
   }
 
